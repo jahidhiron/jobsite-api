@@ -50,5 +50,4 @@ Look at 'samples/api_collection.json' file for API end point
 
 ## License
 
-Specify the license under which your project is distributed. For example:
 This project is licensed under the MIT License.
