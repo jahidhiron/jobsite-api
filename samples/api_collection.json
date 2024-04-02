@@ -1,0 +1,637 @@
+{
+	"info": {
+		"_postman_id": "186ba2be-3696-4948-9104-0eb1d3252460",
+		"name": "job-site",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3378045"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Ambar Al\",\r\n    \"lastName\": \"Myman\",\r\n    \"role\": \"candidate\",\r\n    \"email\": \"hironse.96@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aysha.siddika0304@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/signin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "current-user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVXNlciBPbmUiLCJlbWFpbCI6ImphaGlkMUB5b3BtYWlsLmNvbSIsImlkIjoyLCJpYXQiOjE3MTEwMDUxNzQsImV4cCI6MTcxMTAwODc3NCwiYXVkIjoiMDBhZjcyOTYtY2EzZi00YzNiLTlmMGYtMDM4YWE3MzEwODUwIiwiaXNzIjoiUHJlY3RpY2UgU2VydmVyIn0.iEKG5hNXDdktA4ozihC1YhZxghZmzHC6bTF-pcVa5N4; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVXNlciBPbmUiLCJlbWFpbCI6ImphaGlkMUB5b3BtYWlsLmNvbSIsImlkIjoyLCJpYXQiOjE3MTEwMDUxNzQsImV4cCI6MTcxMTAwOTE3NCwiYXVkIjoiMDBhZjcyOTYtY2EzZi00YzNiLTlmMGYtMDM4YWE3MzEwODUwIiwiaXNzIjoiUHJlY3RpY2UgU2VydmVyIn0.PD7rWW41FFcYx3_oHl0FvDY53cZ4bEXpCH_UkCUfAjU",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-lang-id",
+								"value": "jp",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/current-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"current-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVXNlciBPbmUiLCJlbWFpbCI6ImphaGlkMUB5b3BtYWlsLmNvbSIsImlkIjoyLCJpYXQiOjE3MTEwMDUxNzQsImV4cCI6MTcxMTAwODc3NCwiYXVkIjoiMDBhZjcyOTYtY2EzZi00YzNiLTlmMGYtMDM4YWE3MzEwODUwIiwiaXNzIjoiUHJlY3RpY2UgU2VydmVyIn0.iEKG5hNXDdktA4ozihC1YhZxghZmzHC6bTF-pcVa5N4; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVXNlciBPbmUiLCJlbWFpbCI6ImphaGlkMUB5b3BtYWlsLmNvbSIsImlkIjoyLCJpYXQiOjE3MTEwMDUxNzQsImV4cCI6MTcxMTAwOTE3NCwiYXVkIjoiMDBhZjcyOTYtY2EzZi00YzNiLTlmMGYtMDM4YWE3MzEwODUwIiwiaXNzIjoiUHJlY3RpY2UgU2VydmVyIn0.PD7rWW41FFcYx3_oHl0FvDY53cZ4bEXpCH_UkCUfAjU",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/refresh-token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resend-email-verification-code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aysha.siddika0304@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/resend-email-verification-code",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"resend-email-verification-code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email-verification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aysha.siddika0304@gmail.com\",\r\n    \"code\": \"825103\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/email-verification",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"email-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aysha.siddika0304@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/forgot-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aysha.siddika0304@gmail.com\",\r\n    \"code\": \"517119\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/reset-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-lang-id",
+								"value": "jp",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"555555\",\r\n    \"newPassword\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/change-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user1@yopmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/signout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"item": [
+				{
+					"name": "get-roles",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page\": 1,\r\n    \"size\": 2,\r\n    \"q\": \"\",\r\n    \"sort\": [\r\n        {\r\n            \"whom\": \"updatedAt\",\r\n            \"order\": \"asc\"\r\n        }\r\n    ]\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/list",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-role-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-role",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"test2\",\r\n    \"desc\": \"<script>alert('hello')</script> this is test script\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-role",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"test\",\r\n    \"desc\": \"Test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore-role",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/restore/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"restore",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft-delete-role",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/soft/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"soft",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hard-delete-role",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/hard/4",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"hard",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-single-permission",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/permission/3?name=auth",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"permission",
+								"3"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "auth"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-permission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"auth\",\r\n    \"permission\": {\r\n        \"read\": true,\r\n        \"write\": true,\r\n        \"update\": true,\r\n        \"delete\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/permission/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"permission",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-permission",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"auth\",\r\n    \"updatedName\": \"roles\",\r\n    \"permission\": {\r\n        \"read\": true,\r\n        \"write\": true,\r\n        \"update\": true,\r\n        \"delete\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/permission/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"permission",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-permission",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"roles\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/roles/permission/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								"permission",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
