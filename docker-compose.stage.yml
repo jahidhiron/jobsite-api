@@ -1,0 +1,11 @@
+version: "3"
+services:
+  job-site-api:
+    build:
+      context: .
+      args:
+        NODE_ENV: stage
+    env_file: ./.env.stage
+    ports:
+      - "7001:7001"
+    command: npm run stage

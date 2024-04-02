@@ -1,0 +1,10 @@
+version: '3'
+services:
+  job-site-api:
+    build:
+      context: .
+      args:
+        NODE_ENV: production
+    env_file: ./.env.production
+    ports:
+      - '7000:7000'

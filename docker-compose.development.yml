@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  job-site-api:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    env_file: ./.env.development
+    ports:
+      - '8003:8003'
+    volumes:
+      - ./:/app:ro
+      - /app/node_modules
+    command: npm run dev

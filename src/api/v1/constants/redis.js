@@ -1,0 +1,9 @@
+module.exports = {
+  DEFAULT_CACHING_TIME_IN_SEC: 600,
+  RETRY_STRATEGY: {
+    INITIAL_DELY: 100,
+    MAX_DELY: 5000,
+    MIN_JITTER: 0.5,
+    MAX_JITTER_RANDOM_VALUE: 0.5,
+  },
+};

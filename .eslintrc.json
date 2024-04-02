@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  // it extending airbnb base, which means we are usieng airbnb ESlint guideline
+  // which defines rules how we write code
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "plugin:security/recommended-legacy"
+  ],
+  "plugins": ["prettier", "security"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    // "no-console": "error",
+    "consistent-return": "off",
+    "func-names": "off",
+    "import/no-extraneous-dependencies": "off",
+    "class-methods-use-this": "off",
+    "no-underscore-dangle": "off",
+    "no-restricted-globals": "off",
+    "no-restricted-syntax": ["off", "ForOfStatement"]
+  }
+}

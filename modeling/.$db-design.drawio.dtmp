@@ -1,0 +1,331 @@
+<mxfile host="Electron" modified="2024-03-13T08:38:53.987Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="88H6-I8YqvtRQ3-CItyx" version="22.0.2" type="device">
+  <diagram id="WAGPpF2LaKX80kCjaSZH" name="Page-1">
+    <mxGraphModel dx="1363" dy="2708" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-1" value="users" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-580" y="-440" width="310" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-2" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ employerId: ref employers ON DELETE CASCADE&#xa;&#xa;+ firstName: string [required],&#xa;&#xa;+ lastName: string [required],&#xa;&#xa;+ email: string [required],&#xa;&#xa;+ password: string [required],&#xa;&#xa;+ avatar: string,&#xa;&#xa;+ role: number [admin(1), employer(2), &#xa;   candidate(3)]&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;+ lastLogin: date,&#xa;&#xa;+ profile: ref Profile" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-1" vertex="1">
+          <mxGeometry y="30" width="310" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-5" value="verification_codes" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-110" y="-310" width="250" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-6" value="+ id: uuid primary key,&#xa;&#xa;+ userId: ref users [required],&#xa;&#xa;+ code: string [required],&#xa;&#xa;+ codeType: number [verificationCode (1),&#xa;    forgotPasswordCode (2)&#xa;]&#xa;&#xa;+ verifiedBy: number [email (1), phone (2)]&#xa;&#xa;+ createdAt: date [required],&#xa;&#xa;+ expiredAt: date [required],&#xa;&#xa;+ ip: string [required],&#xa;&#xa;+ used: boolean [default: false],&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-5" vertex="1">
+          <mxGeometry y="30" width="250" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-13" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;entryX=0;entryY=0.429;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-2" target="UpTmUMsQdDxuBzCbDC8o-6" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="-280" y="-230" as="sourcePoint" />
+            <mxPoint x="-170" y="-310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-16" value="files" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-140" y="-1147" width="240" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-17" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ name: string [required],&#xa;&#xa;+ path: string [required],&#xa;&#xa;+ type: number[avatar(1), resume: (2), &#xa;   cover letter(3), video(4)]&#xa;&#xa;+ size: number,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;+ updatedBy: ref users [required],&#xa;&#xa;+ deletedBy: ref users [allow null]&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-16" vertex="1">
+          <mxGeometry y="30" width="240" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-21" value="employers" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-350" y="-1747" width="290" height="394" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-22" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ companyCategory: ref companyCategories&#xa;&#xa;+ companyName: string [required],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ location: ref addresses ON DELETE CASCADE&#xa;&#xa;+ establishedAt: date,&#xa;&#xa;+ companySize: string,&#xa;&#xa;+ license: string,&#xa;&#xa;+ website: string,&#xa;&#xa;+ primaryContact :string,&#xa;&#xa;+ secondaryContact: string,&#xa;&#xa;+ socials: ref socials ON DELETE CASCADE" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-21" vertex="1">
+          <mxGeometry y="30" width="290" height="364" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-23" value="addresses" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="420" y="-1623" width="280" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-24" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ address: string,&#xa;&#xa;+ city: string,&#xa;&#xa;+ state: string,&#xa;&#xa;+ zipCode: string,&#xa;&#xa;+ country: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ udpatedAt: date,&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-23" vertex="1">
+          <mxGeometry y="30" width="280" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-27" value="socials" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="420" y="-1287" width="150" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-28" value="+ id: uuid primary key,&#xa;&#xa;+ name: string,&#xa;&#xa;+ url: string,&#xa;&#xa;+ updatedAt: date&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-27" vertex="1">
+          <mxGeometry y="30" width="150" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-31" value="companyCategories" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="180" y="-2060" width="290" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-32" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ slug: string [unique],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-31" vertex="1">
+          <mxGeometry y="30" width="290" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-33" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-21" target="UpTmUMsQdDxuBzCbDC8o-32" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="680" y="-917" as="sourcePoint" />
+            <mxPoint x="382.9899999999998" y="-1818.174" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-34" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=0.341;exitY=-0.008;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.459;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-1" target="UpTmUMsQdDxuBzCbDC8o-22" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="400" y="-810" as="sourcePoint" />
+            <mxPoint x="500" y="-910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-37" value="Candidate" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="770" y="-1576" width="360" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-38" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ candidateCategory: ref candidateCategories,&#xa;&#xa;+ fatherName: string,&#xa;&#xa;+ motherName: string,&#xa;&#xa;+ dob: date,&#xa;&#xa;+ gender: number [male(1), female(2), others(3)],&#xa;&#xa;+ maritalStatus: number [meried(1), unmeried(2)],&#xa;&#xa;+ nationality: string,&#xa;&#xa;+ nid: string,&#xa;&#xa;+ passportId: string,&#xa;&#xa;+ primaryContact: string,&#xa;&#xa;+ secondaryContact: string,&#xa;&#xa;+ bloodGroup: string,&#xa;&#xa;+ presentAddress: ref addresses ON DELETE CASCADE,&#xa;&#xa;+ permanentAddress: ref addresses ON DELETE CASCADE,&#xa;&#xa;+ preferredLocation: ref candiatePreferredLocation,&#xa;&#xa;+ disabilityInfo: string,&#xa;&#xa;+ objectives: string,&#xa;&#xa;+ resume: ref - files,&#xa;&#xa;+ coverLetter: ref - files,&#xa;&#xa;+ videoUrl: ref - files,&#xa;&#xa;+ currentSalary: number,&#xa;&#xa;+ expectedSalary: number, &#xa;&#xa;+ socials: ref socials ON DELETE CASCADE" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-37" vertex="1">
+          <mxGeometry y="30" width="360" height="710" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-39" value="candidateCategories" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="640" y="-2000" width="290" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-40" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ slug: string [unique],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-39" vertex="1">
+          <mxGeometry y="30" width="290" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-44" value="candiatePreferredLocation" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="980" y="-2000" width="290" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-45" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ slug: string [unique],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-44" vertex="1">
+          <mxGeometry y="30" width="290" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-49" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=1.006;exitY=0.673;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.017;entryY=0.337;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-22" target="UpTmUMsQdDxuBzCbDC8o-28" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="310" y="-1117" as="sourcePoint" />
+            <mxPoint x="410" y="-1217" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-51" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=1.013;exitY=0.104;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-22" target="UpTmUMsQdDxuBzCbDC8o-24" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="340.0000000000002" y="-1379.0979999999997" as="sourcePoint" />
+            <mxPoint x="453.71000000000026" y="-1436.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-52" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-37" target="UpTmUMsQdDxuBzCbDC8o-40" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="894.01" y="-1638.83" as="sourcePoint" />
+            <mxPoint x="910.0000000000002" y="-1820.004" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-53" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0.477;entryY=1.018;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="UpTmUMsQdDxuBzCbDC8o-45" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="930" y="-1580" as="sourcePoint" />
+            <mxPoint x="795" y="-1705.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-56" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=-0.014;exitY=0.71;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-38" target="UpTmUMsQdDxuBzCbDC8o-28" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="750" y="-1110" as="sourcePoint" />
+            <mxPoint x="703.7099999999998" y="-1198.9499999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-58" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;entryX=0.648;entryY=1.019;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-38" target="UpTmUMsQdDxuBzCbDC8o-24" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="774.96" y="-1031.8999999999996" as="sourcePoint" />
+            <mxPoint x="560" y="-1145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-59" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0.008;entryY=0.708;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-2" target="UpTmUMsQdDxuBzCbDC8o-38" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="-84.28999999999996" y="-53.279999999999745" as="sourcePoint" />
+            <mxPoint x="490" y="-716" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-61" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=0.341;exitY=-0.008;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" target="UpTmUMsQdDxuBzCbDC8o-17" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="-444.28999999999996" y="-433.2800000000002" as="sourcePoint" />
+            <mxPoint x="-594.8899999999999" y="-1246" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-63" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;entryX=1.02;entryY=0.373;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-38" target="UpTmUMsQdDxuBzCbDC8o-17" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="774.9600000000005" y="-1031.9" as="sourcePoint" />
+            <mxPoint x="560" y="-1145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-65" value="candidateEducations" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1360" y="-2040" width="240" height="313" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-66" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ instituteName: string [required],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ degree: string,&#xa;&#xa;+ result: string,&#xa;&#xa;+ grade: string,&#xa;&#xa;+ startDate: date,&#xa;&#xa;+ endDate: date,&#xa;&#xa;+ achievement: string&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-65" vertex="1">
+          <mxGeometry y="30" width="240" height="283" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-67" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=-0.004;entryY=0.471;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-38" target="UpTmUMsQdDxuBzCbDC8o-66" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1147" y="-1371.144" as="sourcePoint" />
+            <mxPoint x="1261.23" y="-1470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-69" value="candidateExperiences" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1350" y="-1700" width="250" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-70" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ companyName: string [required],&#xa;&#xa;+ designation: ref jobDesignations,&#xa;&#xa;+ desc: string,&#xa;&#xa;+ startDate: date,&#xa;&#xa;+ endDate: date,&#xa;&#xa;+ achievement: string&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-69" vertex="1">
+          <mxGeometry y="30" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-71" value="jobDesignations" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1187" y="-152" width="290" height="342" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-72" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ jobSubCategory: ref jobSubCategories&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ slug: string [unique],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-71" vertex="1">
+          <mxGeometry y="30" width="290" height="312" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-73" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.347;entryY=-0.019;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-70" target="UpTmUMsQdDxuBzCbDC8o-71" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1470" y="-1660" as="sourcePoint" />
+            <mxPoint x="1570" y="-1760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-74" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-38" target="UpTmUMsQdDxuBzCbDC8o-69" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1140" y="-1358.5" as="sourcePoint" />
+            <mxPoint x="1369.0400000000004" y="-1858.1200000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-75" value="candidateProjects" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1350" y="-1430" width="250" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-76" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ startDate: date,&#xa;&#xa;+ endDate: date,&#xa;&#xa;+ link: string&#xa;&#xa;+ skills: ref skills&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-75" vertex="1">
+          <mxGeometry y="30" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-77" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-38" target="UpTmUMsQdDxuBzCbDC8o-76" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1140" y="-1358.5" as="sourcePoint" />
+            <mxPoint x="1360" y="-1565" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-78" value="skills" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1350" y="-1130" width="290" height="284" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-79" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-78" vertex="1">
+          <mxGeometry y="30" width="290" height="254" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-80" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-38" target="UpTmUMsQdDxuBzCbDC8o-79" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1140" y="-1358.5" as="sourcePoint" />
+            <mxPoint x="1360" y="-1280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-81" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;entryX=1.016;entryY=0.355;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-78" target="UpTmUMsQdDxuBzCbDC8o-76" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1140" y="-1181" as="sourcePoint" />
+            <mxPoint x="1360" y="-963" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-84" value="candidateTrainings" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1355" y="-810" width="250" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-85" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ trainingName: string [required],&#xa;&#xa;+ topics: string,&#xa;&#xa;+ desc: string,&#xa;&#xa;+ startDate: date,&#xa;&#xa;+ endDate: date,&#xa;&#xa;+ topic: ref topics&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-84" vertex="1">
+          <mxGeometry y="30" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-90" value="topics" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1710" y="-827" width="290" height="284" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-91" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-90" vertex="1">
+          <mxGeometry y="30" width="290" height="254" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-93" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=1.008;exitY=0.532;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-85" target="UpTmUMsQdDxuBzCbDC8o-91" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1830" y="-710" as="sourcePoint" />
+            <mxPoint x="1930" y="-810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-94" value="candidateCertifications" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1355" y="-510" width="250" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-95" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ institute: ref institutles,&#xa;&#xa;+ location: string,&#xa;&#xa;+ startDate: date,&#xa;&#xa;+ endDate: date,&#xa;&#xa;+ topic: ref topics&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-94" vertex="1">
+          <mxGeometry y="30" width="250" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-99" value="&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-94" vertex="1">
+          <mxGeometry y="250" width="250" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-96" value="institutes" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1720" y="-510" width="290" height="284" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-97" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="UpTmUMsQdDxuBzCbDC8o-96" vertex="1">
+          <mxGeometry y="30" width="290" height="254" as="geometry" />
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-98" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-95" target="UpTmUMsQdDxuBzCbDC8o-97" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1606.9999999999995" y="-392.96000000000004" as="sourcePoint" />
+            <mxPoint x="1709.9999999999995" y="-400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UpTmUMsQdDxuBzCbDC8o-100" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-95" target="UpTmUMsQdDxuBzCbDC8o-91" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1614.9999999999995" y="-360" as="sourcePoint" />
+            <mxPoint x="1729.9999999999995" y="-343" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-2" value="jobCategories" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1187" y="301" width="290" height="319" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-3" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ slug: string [unique],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="3Ew6onQdb7PsxuVIuy14-2" vertex="1">
+          <mxGeometry y="30" width="290" height="289" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-4" value="jobSubCategories" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="827" y="188" width="290" height="312" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-5" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ slug: string [unique],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="3Ew6onQdb7PsxuVIuy14-4" vertex="1">
+          <mxGeometry y="30" width="290" height="282" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-6" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=-0.003;exitY=0.189;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.01;entryY=0.315;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3Ew6onQdb7PsxuVIuy14-3" target="3Ew6onQdb7PsxuVIuy14-5" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="957" y="238" as="sourcePoint" />
+            <mxPoint x="1057" y="138" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-7" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.534;exitY=0.007;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="3Ew6onQdb7PsxuVIuy14-4" target="UpTmUMsQdDxuBzCbDC8o-72" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="957" y="238" as="sourcePoint" />
+            <mxPoint x="1057" y="138" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-8" value="jobPosts" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="830" y="-727" width="270" height="684" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-9" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ desc: string [required],&#xa;&#xa;+ educationalRequirements: array,&#xa;&#xa;+ additionalRequirements: array,&#xa;&#xa;+ benifits: array,&#xa;&#xa;+ experience: number [year],&#xa;&#xa;+ minSalary: number,&#xa;&#xa;+ maxSalary: number,&#xa;&#xa;+ salaryNote: string,&#xa;&#xa;+ salaryCurrency: string,&#xa;&#xa;+ jobDesignationId: ref - jobDesignations&#xa;&#xa;+ jobTypeId: ref jobTypes&#xa;&#xa;+ jobNatureId: jobNatures&#xa;&#xa;+ vacancy: number,&#xa;&#xa;+ totalApplied: number,&#xa;&#xa;+ rejectReason: string, &#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;+ expiredAt: date&#xa;&#xa;+ updatedBy: ref - users,&#xa;&#xa;+ deletedBy: ref - users&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="3Ew6onQdb7PsxuVIuy14-8" vertex="1">
+          <mxGeometry y="30" width="270" height="654" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-10" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0.678;entryY=1.001;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-72" target="3Ew6onQdb7PsxuVIuy14-9" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="690" y="320" as="sourcePoint" />
+            <mxPoint x="790" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-11" value="jobType" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="415" y="-740" width="290" height="264" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-12" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="3Ew6onQdb7PsxuVIuy14-11" vertex="1">
+          <mxGeometry y="30" width="290" height="234" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-13" value="jobNature" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="480" y="120" width="290" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-14" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ createdBy: ref users [required],&#xa;&#xa;+ udpatedBy: ref users [allow null],&#xa;&#xa;+ deletedBy: ref users,&#xa;&#xa;+ title: string [required],&#xa;&#xa;+ slug: string [unique],&#xa;&#xa;+ desc: string,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="3Ew6onQdb7PsxuVIuy14-13" vertex="1">
+          <mxGeometry y="30" width="290" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-15" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=-0.014;entryY=0.267;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.009;exitY=0.428;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="3Ew6onQdb7PsxuVIuy14-12" target="3Ew6onQdb7PsxuVIuy14-9" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="510" y="460" as="sourcePoint" />
+            <mxPoint x="610" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-16" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.001;entryY=0.369;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3Ew6onQdb7PsxuVIuy14-14" target="3Ew6onQdb7PsxuVIuy14-9" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="570.0000000000001" y="-41.908000000000015" as="sourcePoint" />
+            <mxPoint x="820" y="-530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-21" value="applies" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="190" y="-400" width="260" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-22" value="+ id: uuid primary key,&#xa;&#xa;+ serialNumber: number auto increment,&#xa;&#xa;+ jobPostId: ref - jobPosts,&#xa;&#xa;+ appliedBy: ref - users,&#xa;&#xa;+ viewed: boolean [default: false],&#xa;&#xa;+ downloaded: boolean [default: false],&#xa;&#xa;+ shortListed: boolean [default: false],&#xa;&#xa;+ interviewed: boolean [default: false],&#xa;&#xa;+ selected: boolean [default: false],&#xa;&#xa;+ totalApplied: number,&#xa;&#xa;+ createdAt: date,&#xa;&#xa;+ updatedAt: date,&#xa;&#xa;+ updatedBy: ref users,&#xa;&#xa;+ deletedBy: ref - users,&#xa;&#xa;+ udpatedByAdmin: ref - users&#xa;&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontStyle=1" parent="3Ew6onQdb7PsxuVIuy14-21" vertex="1">
+          <mxGeometry y="30" width="260" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-24" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;exitX=-0.037;exitY=0.602;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.019;entryY=0.431;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3Ew6onQdb7PsxuVIuy14-9" target="3Ew6onQdb7PsxuVIuy14-22" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="470" y="-50" as="sourcePoint" />
+            <mxPoint x="570" y="-150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3Ew6onQdb7PsxuVIuy14-25" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=1.02;exitY=0.177;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.058;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="UpTmUMsQdDxuBzCbDC8o-2" target="3Ew6onQdb7PsxuVIuy14-22" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="-150" y="-80" as="sourcePoint" />
+            <mxPoint x="-50" y="-180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
