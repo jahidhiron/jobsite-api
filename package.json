@@ -10,7 +10,7 @@
     "prettier:fix": "prettier --write **/*.js",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
-    "dev": "nodemon -r dotenv/config . dotenv_config_path=./.env.local -L ./src/index.js",
+    "dev": "nodemon -r dotenv/config . dotenv_config_path=./.env.dev -L ./src/index.js",
     "stage": "node ./src/index.js",
     "start": "node ./src/index.js",
     "docker-compose-up": "docker-compose --env-file ./.env.development -f ./docker-compose.yml -f ./docker-compose.development.yml up --build",

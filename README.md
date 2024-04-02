@@ -10,7 +10,8 @@ This Node.js API provides developers with easy access to job listings and relate
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
+- [Features](#features)
+- [API Endpoints](#endpoints)
 - [License](#license)
 
 ## Installation
