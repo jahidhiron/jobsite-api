@@ -4,7 +4,15 @@
 
 ## Description
 
-This Node.js API provides developers with easy access to job listings and related data from various job sites. With this API, you can integrate job search functionality into your applications, access job details, filter by location, industry, or job type, and much more.
+As part of my professional experience, I undertook a project to design and develop a job recruiting website. The goal of this project was to create a platform where job seekers could search for job opportunities and employers could post job listings.
+<br />
+Developed a secure system for job seekers and employers to create and log into their accounts safely.
+<br />
+Developed a robust job search feature that enables job seekers to filter listings based on specific criteria, including location, industry, and job title.
+<br />
+Created a job board that allows employers to post job openings with descriptions and requirements, and allows job seekers to submit applications.
+<br />
+Developed a job application tracking feature for job seekers and employers.
 
 ## Table of Contents
 
